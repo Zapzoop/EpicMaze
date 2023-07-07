@@ -7,10 +7,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_nbajt"]
 radius = 7.5
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
 script = ExtResource("1_pqi0j")
-SPEED = 200.0
+SPEED = 100.0
 FRICTION = 27.0
 MOMENTUM = 50.0
 
@@ -23,3 +23,5 @@ texture = ExtResource("3_55kav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nbajt")
+
+[node name="Camera2D" type="Camera2D" parent="."]

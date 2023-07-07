@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="2DgamEjam mazeEpic"
-run/main_scene="res://levels/level_1.tscn"
+config/name="EpicMaze"
+run/main_scene="res://menu/menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalSceneTree="*res://mechanism/SceneTree.gd"
 
 [display]
 
