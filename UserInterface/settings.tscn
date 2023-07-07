@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://v0osoo76bmye"]
+
+[ext_resource type="PackedScene" uid="uid://dp0jht852b74h" path="res://UserInterface/volume_slider.tscn" id="1_4njfn"]
+[ext_resource type="Script" path="res://UserInterface/settings.gd" id="1_h12ta"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h12ta")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 77.0
+offset_bottom = 63.0
+text = "Back"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -423.0
+offset_top = -231.0
+offset_right = 423.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MuscicBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Panel/VBoxContainer/MuscicBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.32
+theme_override_font_sizes/font_size = 30
+text = "Music:"
+horizontal_alignment = 2
+
+[node name="MusicSlider" parent="Panel/VBoxContainer/MuscicBoxContainer" instance=ExtResource("1_4njfn")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="EffectBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="EffectLabel" type="Label" parent="Panel/VBoxContainer/EffectBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.32
+theme_override_font_sizes/font_size = 30
+text = "Effect:"
+horizontal_alignment = 2
+
+[node name="EffectSlider" parent="Panel/VBoxContainer/EffectBoxContainer" instance=ExtResource("1_4njfn")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/MuscicBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/EffectBoxContainer/EffectSlider" to="." method="_on_effect_slider_value_changed"]
